@@ -5,7 +5,7 @@ import TreeSitterTreeSitterParol
 final class TreeSitterTreeSitterParolTests: XCTestCase {
     func testCanLoadGrammar() throws {
         let parser = Parser()
-        let language = Language(language: tree_sitter_tree_sitter_parol())
+        let language = Language(language: tree_sitter_parol())
         XCTAssertNoThrow(try parser.setLanguage(language),
                          "Error loading Parol grammar")
     }
