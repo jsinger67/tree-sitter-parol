@@ -1,12 +1,728 @@
 [
   {
-    "type": "source_file",
+    "type": "alternation",
     "named": true,
-    "root": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "factor",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "hello",
+    "type": "alternations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alternation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ast_control",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cut_operator",
+          "named": true
+        },
+        {
+          "type": "member_name",
+          "named": true
+        },
+        {
+          "type": "user_type_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaration",
+    "named": true,
+    "fields": {
+      "nt_name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "nt_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "user_type_name",
+            "named": true
+          }
+        ]
+      },
+      "t_type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "user_type_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "raw_string",
+          "named": true
+        },
+        {
+          "type": "scanner_directives",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "user_type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "factor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "group",
+          "named": true
+        },
+        {
+          "type": "optional",
+          "named": true
+        },
+        {
+          "type": "repeat",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "grammar_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "production",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "alternations",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "identifier_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "look_ahead",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "negative_lookahead",
+          "named": true
+        },
+        {
+          "type": "positive_lookahead",
+          "named": true
+        },
+        {
+          "type": "token_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "member_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_terminal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ast_control",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "optional",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "alternations",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parol",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "grammar_definition",
+          "named": true
+        },
+        {
+          "type": "prolog",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "production",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alternations",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prolog",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "scanner_state",
+          "named": true
+        },
+        {
+          "type": "start_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "repeat",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "alternations",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scanner_directives",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier_list",
+          "named": true
+        },
+        {
+          "type": "scanner_state_directives",
+          "named": true
+        },
+        {
+          "type": "token_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scanner_state",
+    "named": true,
+    "fields": {
+      "state_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "scanner_directives",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scanner_state_directives",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "simple_token",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ast_control",
+          "named": true
+        },
+        {
+          "type": "token_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "start_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "symbol",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "non_terminal",
+          "named": true
+        },
+        {
+          "type": "simple_token",
+          "named": true
+        },
+        {
+          "type": "token_with_states",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "token_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "look_ahead",
+          "named": true
+        },
+        {
+          "type": "token_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "token_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "raw_string",
+          "named": true
+        },
+        {
+          "type": "regex",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "token_with_states",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ast_control",
+          "named": true
+        },
+        {
+          "type": "identifier_list",
+          "named": true
+        },
+        {
+          "type": "token_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "user_type_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "user_type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "user_type_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "double_colon",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "%%",
+    "named": false
+  },
+  {
+    "type": "%allow_unmatched",
+    "named": false
+  },
+  {
+    "type": "%auto_newline_off",
+    "named": false
+  },
+  {
+    "type": "%auto_ws_off",
+    "named": false
+  },
+  {
+    "type": "%block_comment",
+    "named": false
+  },
+  {
+    "type": "%comment",
+    "named": false
+  },
+  {
+    "type": "%enter",
+    "named": false
+  },
+  {
+    "type": "%grammar_type",
+    "named": false
+  },
+  {
+    "type": "%line_comment",
+    "named": false
+  },
+  {
+    "type": "%nt_type",
+    "named": false
+  },
+  {
+    "type": "%on",
+    "named": false
+  },
+  {
+    "type": "%pop",
+    "named": false
+  },
+  {
+    "type": "%push",
+    "named": false
+  },
+  {
+    "type": "%scanner",
+    "named": false
+  },
+  {
+    "type": "%start",
+    "named": false
+  },
+  {
+    "type": "%t_type",
+    "named": false
+  },
+  {
+    "type": "%title",
+    "named": false
+  },
+  {
+    "type": "%user_type",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "block_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "cut_operator",
+    "named": true
+  },
+  {
+    "type": "double_colon",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "negative_lookahead",
+    "named": true
+  },
+  {
+    "type": "positive_lookahead",
+    "named": true
+  },
+  {
+    "type": "raw_string",
+    "named": true
+  },
+  {
+    "type": "regex",
+    "named": true
+  },
+  {
+    "type": "string",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
     "named": false
   }
 ]
