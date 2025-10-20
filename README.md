@@ -38,10 +38,8 @@ This project provides a complete Tree-sitter grammar for parsing Parol grammar f
 
 ### Node.js
 
->Not yet available. Please install from source.
-
 ```bash
-npm install tree-sitter-tree-sitter-parol
+npm install tree-sitter-parol
 ```
 
 ### From Source
@@ -67,7 +65,7 @@ npx tree-sitter parse examples/example.par
 
 ```javascript
 const Parser = require('tree-sitter');
-const Parol = require('tree-sitter-tree-sitter-parol');
+const Parol = require('tree-sitter-parol');
 
 const parser = new Parser();
 parser.setLanguage(Parol);
@@ -91,7 +89,7 @@ console.log(tree.rootNode.toString());
 ### Python
 
 ```python
-import tree_sitter_tree_sitter_parol as ts_parol
+import tree_sitter_parol as ts_parol
 from tree_sitter import Language, Parser
 
 PAROL_LANGUAGE = Language(ts_parol.language(), 'parol')
@@ -119,10 +117,10 @@ print(tree.root_node.sexp())
 ```rust
 use tree_sitter::{Language, Parser};
 
-extern "C" { fn tree_sitter_tree_sitter_parol() -> Language; }
+extern "C" { fn tree_sitter_parol() -> Language; }
 
 fn main() {
-    let language = unsafe { tree_sitter_tree_sitter_parol() };
+    let language = unsafe { tree_sitter_parol() };
     let mut parser = Parser::new();
     parser.set_language(language).expect("Error loading Parol grammar");
     

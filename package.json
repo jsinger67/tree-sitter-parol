@@ -1,8 +1,8 @@
 {
-  "name": "tree-sitter-tree-sitter-parol",
+  "name": "tree-sitter-parol",
   "version": "0.1.0",
   "description": "Tree-sitter parser for parol language",
-  "repository": "https://github.com/jsinger67/parol",
+  "repository": "https://github.com/jsinger67/tree-sitter-parol",
   "license": "MIT",
   "author": {
     "name": "Joerg Singer",
@@ -32,11 +32,11 @@
   },
   "devDependencies": {
     "prebuildify": "^6.0.1",
-    "tree-sitter": "^0.22.4",
+    "tree-sitter": "^0.25.0",
     "tree-sitter-cli": "^0.25.10"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.22.4"
+    "tree-sitter": "^0.25.0"
   },
   "peerDependenciesMeta": {
     "tree-sitter": {

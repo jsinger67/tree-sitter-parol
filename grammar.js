@@ -9,7 +9,7 @@
 // @ts-check
 
 module.exports = grammar({
-  name: "tree_sitter_parol",
+  name: "parol",
 
   extras: $ => [
     /\s/,
