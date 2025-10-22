@@ -76,10 +76,10 @@ const sourceCode = `
 
 %%
 
-Expr: Term { ("+" | "-") Term };
-Term: Factor { ("*" | "/") Factor };
-Factor: Number | "(" Expr ")";
-Number: r"\d+";
+Expr: Term { ('+' | '-') Term };
+Term: Factor { ('*' | '/') Factor };
+Factor: Number | '(' Expr ')';
+Number: /\d+/;
 `;
 
 const tree = parser.parse(sourceCode);
@@ -102,10 +102,10 @@ source_code = b"""
 
 %%
 
-Expr: Term { ("+" | "-") Term };
-Term: Factor { ("*" | "/") Factor };
-Factor: Number | "(" Expr ")";
-Number: r"\\d+";
+Expr: Term { ('+' | '-') Term };
+Term: Factor { ('*' | '/') Factor };
+Factor: Number | '(' Expr ')';
+Number: /\d+/;
 """
 
 tree = parser.parse(source_code)
@@ -130,10 +130,10 @@ fn main() {
 
 %%
 
-Expr: Term { ("+" | "-") Term };
-Term: Factor { ("*" | "/") Factor };
-Factor: Number | "(" Expr ")";
-Number: r"\d+";
+Expr: Term { ('+' | '-') Term };
+Term: Factor { ('*' | '/') Factor };
+Factor: Number | '(' Expr ')';
+Number: /\d+/;
 "#;
     
     let tree = parser.parse(source_code, None).unwrap();
@@ -150,8 +150,8 @@ The Parol language consists of two main sections:
 - `%title` for grammar title
 - `%comment` for version info
 - `%line_comment` and `%block_comment` for comment syntax
-- `%scanner` directives for lexical control
-- `%on` declarations for user types
+- `%scanner` directives for additional scanner states
+- `%on` declarations for transitions from scanner state INITIAL
 - Scanner states for lexical modes
 
 ### Grammar Definition Section
@@ -167,23 +167,23 @@ The Parol language consists of two main sections:
 %start Calculator
 %title "Simple Calculator Grammar"
 %comment "A basic arithmetic calculator"
-%line_comment "//"
-%block_comment "/*" "*/"
+%line_comment '//'
+%block_comment '/*' '*/'
 
 %%
 
 Calculator: Expr;
 
-Expr: Term { ("+" | "-")^ Term };
-Term: Factor { ("*" | "/")^ Factor };
+Expr: Term { ('+' | '-')^ Term };
+Term: Factor { ('*' | '/')^ Factor };
 
 Factor
     : Number
-    | "(" Expr ")"
-    | "-" Factor
+    | '(' Expr ')'
+    | '-' Factor
     ;
 
-Number: r"\d+(\.\d+)?";
+Number: /\d+(\.\d+)?/;
 ```
 
 ## AST Node Types
