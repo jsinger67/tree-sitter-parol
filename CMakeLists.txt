@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(tree-sitter-tree-sitter-parol
-        VERSION "0.1.0"
+project(tree-sitter-parol
+        VERSION "0.2.0"
         DESCRIPTION "Tree-sitter parser for parol language"
         HOMEPAGE_URL "https://github.com/jsinger67/parol"
         LANGUAGES C)
@@ -26,35 +26,35 @@ add_custom_command(OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/src/parser.c"
                    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
                    COMMENT "Generating parser.c")
 
-add_library(tree-sitter-tree-sitter-parol src/parser.c)
+add_library(tree-sitter-parol src/parser.c)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src/scanner.c)
-  target_sources(tree-sitter-tree-sitter-parol PRIVATE src/scanner.c)
+  target_sources(tree-sitter-parol PRIVATE src/scanner.c)
 endif()
-target_include_directories(tree-sitter-tree-sitter-parol
+target_include_directories(tree-sitter-parol
                            PRIVATE src
                            INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/bindings/c>
                                      $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-target_compile_definitions(tree-sitter-tree-sitter-parol PRIVATE
+target_compile_definitions(tree-sitter-parol PRIVATE
                            $<$<BOOL:${TREE_SITTER_REUSE_ALLOCATOR}>:TREE_SITTER_REUSE_ALLOCATOR>
                            $<$<CONFIG:Debug>:TREE_SITTER_DEBUG>)
 
-set_target_properties(tree-sitter-tree-sitter-parol
+set_target_properties(tree-sitter-parol
                       PROPERTIES
                       C_STANDARD 11
                       POSITION_INDEPENDENT_CODE ON
                       SOVERSION "${TREE_SITTER_ABI_VERSION}.${PROJECT_VERSION_MAJOR}"
                       DEFINE_SYMBOL "")
 
-configure_file(bindings/c/tree-sitter-tree-sitter-parol.pc.in
-               "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-tree-sitter-parol.pc" @ONLY)
+configure_file(bindings/c/tree-sitter-parol.pc.in
+               "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-parol.pc" @ONLY)
 
 install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bindings/c/tree_sitter"
         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
         FILES_MATCHING PATTERN "*.h")
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-tree-sitter-parol.pc"
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-parol.pc"
         DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
-install(TARGETS tree-sitter-tree-sitter-parol
+install(TARGETS tree-sitter-parol
         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 
 file(GLOB QUERIES queries/*.scm)

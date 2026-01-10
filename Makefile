@@ -2,7 +2,7 @@ ifeq ($(OS),Windows_NT)
 $(error Windows is not supported)
 endif
 
-LANGUAGE_NAME := tree-sitter-tree-sitter-parol
+LANGUAGE_NAME := tree-sitter-parol
 HOMEPAGE_URL := https://github.com/jsinger67/parol
 VERSION := 0.1.0
 

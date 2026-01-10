@@ -1,7 +1,7 @@
 [package]
-name = "tree-sitter-tree-sitter-parol"
+name = "tree-sitter-parol"
 description = "Tree-sitter parser for parol language"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Joerg Singer <singer.joerg@gmx.de>"]
 license = "MIT"
 readme = "README.md"
