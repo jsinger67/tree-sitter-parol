@@ -116,7 +116,7 @@ print(tree.root_node.sexp())
 
 ```rust
 use tree_sitter::Parser;
-use tree_sitter_tree_sitter_parol::LANGUAGE;
+use tree_sitter_parol::LANGUAGE;
 
 fn main() {
     let mut parser = Parser::new();
