@@ -115,15 +115,16 @@ print(tree.root_node.sexp())
 ### Rust
 
 ```rust
-use tree_sitter::{Language, Parser};
-
-extern "C" { fn tree_sitter_parol() -> Language; }
+use tree_sitter::Parser;
+use tree_sitter_tree_sitter_parol::LANGUAGE;
 
 fn main() {
-    let language = unsafe { tree_sitter_parol() };
     let mut parser = Parser::new();
-    parser.set_language(language).expect("Error loading Parol grammar");
-    
+    let language = LANGUAGE.into();
+    parser
+        .set_language(&language)
+        .expect("Error loading Parol grammar");
+
     let source_code = r#"
 %start Expr
 %title "Simple Calculator"
@@ -135,7 +136,7 @@ Term: Factor { ('*' | '/') Factor };
 Factor: Number | '(' Expr ')';
 Number: /\d+/;
 "#;
-    
+
     let tree = parser.parse(source_code, None).unwrap();
     println!("{}", tree.root_node().to_sexp());
 }
