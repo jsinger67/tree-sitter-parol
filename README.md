@@ -113,22 +113,7 @@ Number: /\d+/;
 
 # Parse and get the syntax tree
 tree = parser.parse(source_code)
-
-# Helper function to generate S-expression representation
-def node_to_sexp(node):
-    if node.child_count == 0:
-        return f"({node.type})"
-    children_sexp = " ".join(node_to_sexp(child) for child in node.children)
-    return f"({node.type} {children_sexp})"
-
-# Print the S-expression representation
-print(node_to_sexp(tree.root_node))
-
-# Or traverse the tree
-root = tree.root_node
-print(f"\nRoot node type: {root.type}")
-for child in root.children:
-    print(f"Child node type: {child.type}, Text: {child.text}"
+print(tree.root_node)
 ```
 
 ### Rust
