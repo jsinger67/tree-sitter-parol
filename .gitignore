@@ -21,6 +21,7 @@ dist/
 *.egg-info
 *.whl
 *.pyd
+*.pyc
 
 # C artifacts
 *.a
