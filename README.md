@@ -92,10 +92,13 @@ console.log(tree.rootNode.toString());
 import tree_sitter_parol as ts_parol
 from tree_sitter import Language, Parser
 
-PAROL_LANGUAGE = Language(ts_parol.language(), 'parol')
-parser = Parser()
-parser.set_language(PAROL_LANGUAGE)
+# Create the language object
+PAROL_LANGUAGE = Language(ts_parol.language())
 
+# Create a parser and set the language
+parser = Parser(PAROL_LANGUAGE)
+
+# Parse some Parol grammar code
 source_code = b"""
 %start Expr
 %title "Simple Calculator"
@@ -108,8 +111,24 @@ Factor: Number | '(' Expr ')';
 Number: /\d+/;
 """
 
+# Parse and get the syntax tree
 tree = parser.parse(source_code)
-print(tree.root_node.sexp())
+
+# Helper function to generate S-expression representation
+def node_to_sexp(node):
+    if node.child_count == 0:
+        return f"({node.type})"
+    children_sexp = " ".join(node_to_sexp(child) for child in node.children)
+    return f"({node.type} {children_sexp})"
+
+# Print the S-expression representation
+print(node_to_sexp(tree.root_node))
+
+# Or traverse the tree
+root = tree.root_node
+print(f"\nRoot node type: {root.type}")
+for child in root.children:
+    print(f"Child node type: {child.type}, Text: {child.text}"
 ```
 
 ### Rust
